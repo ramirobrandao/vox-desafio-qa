@@ -42,7 +42,7 @@ describe('Login', () => {
         loginPage.visit('/')
         loginPage.entrar()
         //validações usuário e senha vazio
-        loginPage.validarMessagensErro().should('have.text', "Epic sadface: Username is required")
+        loginPage.validarMessagensErro().should('have.text', "Epic sadface: Username isyyyyyyy required")
         loginPage.validarURL().should('contain', '/v1')
     })
 
@@ -86,7 +86,7 @@ describe('Login', () => {
 
     it('Login usuário com falha de desempenho', () => {
         const startTime = Date.now(); //captura o tempo atual
-    
+
         loginPage.visit('/');
         loginPage.loginUsuarioPerformance();
         loginPage.loginSenha();
@@ -95,8 +95,8 @@ describe('Login', () => {
         loginPage.validarLoginDelay(startTime).then((duration) => {
             expect(duration).to.be.greaterThan(4); //verifica se o login demorou mais que 4 segundos
         });
-    
+
         cy.url().should('contain', '/inventory');
     });
-    
+
 })
