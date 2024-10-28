@@ -11,7 +11,7 @@ describe('Efetuando uma compra', () => {
     const checkoutPage = new CheckoutPage();
 
     //cenário de sucesso
-    it.only('Validando o fluxo de compra', () => {
+    it('Validando o fluxo de compra', () => {
         loginPage.visit('/')
         loginPage.loginUsuario()
         loginPage.loginSenha()

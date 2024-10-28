@@ -1,0 +1,207 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 0,
+    "pending": 0,
+    "failures": 5,
+    "start": "2024-10-28T16:24:56.785Z",
+    "end": "2024-10-28T16:25:27.050Z",
+    "duration": 30265,
+    "testsRegistered": 5,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e683d4f7-09fc-4476-b043-7af430b7e157",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec\\checkout.cy.js",
+      "file": "cypress\\e2e\\spec\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4937012a-faa4-410c-be3a-3854d67b46b1",
+          "title": "Efetuando uma compra",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validando o fluxo de compra",
+              "fullTitle": "Efetuando uma compra Validando o fluxo de compra",
+              "timedOut": null,
+              "duration": 6332,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.visit('/');\nloginPage.loginUsuario();\nloginPage.loginSenha();\nloginPage.entrar();\n//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncy.url().should('contain', '/cart');\n//validações botões \ncartPage.validarBtnRemoverProduto().should('have.text', \"REMOVE\");\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\n//finalizando a compra\ncartPage.clicarBtnComprar();\n//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\ncy.url().should('contain', '/checkout-step-one');\n//preenchendo dados do comprador\ncheckoutPage.nomeUsuario();\ncheckoutPage.sobrenomeUsuario();\ncheckoutPage.cepUsuario();\ncheckoutPage.clicarContinua();\n//validando que estou na página de resumo da compra\ncheckoutPage.validarTextoPaginaResumo().should('have.text', \"Checkout: Overview\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncheckoutPage.validarInformacaoPagamento().should('be.visible');\ncheckoutPage.validarBtnFinalizar().should('be.visible');\ncy.url().should('contain', '/checkout-step-two');\ncheckoutPage.clicarFinalizarCompra();\n//validando confirmação de compra \ncheckoutPage.validarConfirmacaoCompra().should('be.visible');\ncheckoutPage.validarTextoCompra().should('THANK YOU FOR YOUR ORDER');\ncy.url().should('contain', '/checkout-complete');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected '<div.subheader>' to have text 'Checkout: Overview', but the text was 'Checkout: Your Information'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected '<div.subheader>' to have text 'Checkout: Overview', but the text was 'Checkout: Your Information'\n    at Context.eval (webpack://vox-desafio-qa/./cypress/e2e/spec/checkout.cy.js:64:48)",
+                "diff": "- 'Checkout: Your Information'\n+ 'Checkout: Overview'\n"
+              },
+              "uuid": "bb399b7a-c286-4e44-9ae6-a4b1e91bc552",
+              "parentUUID": "4937012a-faa4-410c-be3a-3854d67b46b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com campos vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com campos vazio",
+              "timedOut": null,
+              "duration": 5624,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.visit('/');\nloginPage.loginUsuario();\nloginPage.loginSenha();\nloginPage.entrar();\n//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncy.url().should('contain', '/cart');\n//validações botões \ncartPage.validarBtnRemoverProduto().should('have.text', \"REMOVE\");\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\n//finalizando a compra \ncartPage.clicarBtnComprar();\n//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\n//preenchendo dados do comprador\ncheckoutPage.clicarContinua();\n//validar mensagem de erro de todos os campos vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', \"Error: First Name is required\");\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.\n    at Context.eval (webpack://vox-desafio-qa/./cypress/e2e/spec/checkout.cy.js:130:53)",
+                "diff": null
+              },
+              "uuid": "9431b7d8-dd0d-452a-8c36-00822ba1aa84",
+              "parentUUID": "4937012a-faa4-410c-be3a-3854d67b46b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com nome vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com nome vazio",
+              "timedOut": null,
+              "duration": 5844,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.visit('/');\nloginPage.loginUsuario();\nloginPage.loginSenha();\nloginPage.entrar();\n//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncy.url().should('contain', '/cart');\n//validações botões \ncartPage.validarBtnRemoverProduto().should('have.text', \"REMOVE\");\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\n//finalizando a compra\ncartPage.clicarBtnComprar();\n//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\n//preenchendo dados do comprador\ncheckoutPage.sobrenomeUsuario();\ncheckoutPage.cepUsuario();\ncheckoutPage.clicarContinua();\n//validar mensagem de erro de todos os campos vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', \"Error: First Name is required\");\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.\n    at Context.eval (webpack://vox-desafio-qa/./cypress/e2e/spec/checkout.cy.js:182:53)",
+                "diff": null
+              },
+              "uuid": "e050ed4a-1240-4318-bba8-bd17394a45f2",
+              "parentUUID": "4937012a-faa4-410c-be3a-3854d67b46b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com sobrenome vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com sobrenome vazio",
+              "timedOut": null,
+              "duration": 6112,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.visit('/');\nloginPage.loginUsuario();\nloginPage.loginSenha();\nloginPage.entrar();\n//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncy.url().should('contain', '/cart');\n//validações botões \ncartPage.validarBtnRemoverProduto().should('have.text', \"REMOVE\");\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\n//finalizando a compra\ncartPage.clicarBtnComprar();\n//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\n//preenchendo dados do comprador\ncheckoutPage.nomeUsuario();\ncheckoutPage.cepUsuario();\ncheckoutPage.clicarContinua();\n//validar mensagem de erro de todos os campos vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', \"Error: Last Name is required\");\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.\n    at Context.eval (webpack://vox-desafio-qa/./cypress/e2e/spec/checkout.cy.js:234:53)",
+                "diff": null
+              },
+              "uuid": "d945d59b-8cb8-4c30-8c5b-64e527e72a41",
+              "parentUUID": "4937012a-faa4-410c-be3a-3854d67b46b1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com cep vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com cep vazio",
+              "timedOut": null,
+              "duration": 5965,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.visit('/');\nloginPage.loginUsuario();\nloginPage.loginSenha();\nloginPage.entrar();\n//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncy.url().should('contain', '/cart');\n//validações botões \ncartPage.validarBtnRemoverProduto().should('have.text', \"REMOVE\");\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\n//finalizando a compra\ncartPage.clicarBtnComprar();\n//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\n//preenchendo dados do comprador\ncheckoutPage.nomeUsuario();\ncheckoutPage.sobrenomeUsuario();\ncheckoutPage.clicarContinua();\n//validar mensagem de erro com cep vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', 'Error: Postal Code is required');\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.error-button`, but never found it.\n    at Context.eval (webpack://vox-desafio-qa/./cypress/e2e/spec/checkout.cy.js:286:53)",
+                "diff": null
+              },
+              "uuid": "7a7ee0e9-a23f-4baa-b4a5-6413a7e9dc9b",
+              "parentUUID": "4937012a-faa4-410c-be3a-3854d67b46b1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "bb399b7a-c286-4e44-9ae6-a4b1e91bc552",
+            "9431b7d8-dd0d-452a-8c36-00822ba1aa84",
+            "e050ed4a-1240-4318-bba8-bd17394a45f2",
+            "d945d59b-8cb8-4c30-8c5b-64e527e72a41",
+            "7a7ee0e9-a23f-4baa-b4a5-6413a7e9dc9b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 29877,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportFilename": "report",
+        "timestamp": "mmddyyyy_HHMMss",
+        "inlineAssets": true,
+        "reportPageTitle": "Relatório de execução de testes no site SAUCEDEMO",
+        "embeddedScreenshots": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
