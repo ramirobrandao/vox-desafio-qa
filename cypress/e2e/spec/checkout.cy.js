@@ -10,9 +10,11 @@ describe('Efetuando uma compra', () => {
     const cartPage = new CartPage();
     const checkoutPage = new CheckoutPage();
 
-    //cenário de sucesso
-    it('Validando o fluxo de compra', () => {
-        loginPage.visit('/')
+    //efetuando login no site, adicionando produto ao carrinho e continuando 
+    //para confirmação de dados antes de cada cenário
+
+    beforeEach(() => {
+        loginPage.visit()
         loginPage.loginUsuario()
         loginPage.loginSenha()
         loginPage.entrar()
@@ -52,6 +54,10 @@ describe('Efetuando uma compra', () => {
         checkoutPage.validarCEP().should('be.visible')
 
         cy.url().should('contain', '/checkout-step-one')
+    });
+
+    //cenário de sucesso
+    it('Validando o fluxo de compra', () => {
 
         //preenchendo dados do comprador
         checkoutPage.nomeUsuario()
@@ -82,48 +88,11 @@ describe('Efetuando uma compra', () => {
         cy.url().should('contain', '/checkout-complete')
 
     })
+
     //cenários sem sucesso
     it('Cadastro com campos vazio', () => {
-        loginPage.visit('/')
-        loginPage.loginUsuario()
-        loginPage.loginSenha()
-        loginPage.entrar()
-        //adicionando um produto ao carrinho
-        cartPage.clicarProdutoMochila()
-        //clicando no botão adicionar produto
-        cartPage.adicionarCarrinho()
-        //validando númeração no ícone do carrinho
-        cartPage.contadorCarrinho().should('be.visible')
-        //clicando no carrinho pelo selector
-        cartPage.clicarCarrinho()
-        //validações dentro da página de carrinho
 
-        //validações textos
-        cartPage.validarTextoPaginaCarrinho().should('have.text', "Your Cart")
-        cartPage.validarTextoQTY().should('have.text', "QTY")
-        cartPage.validarTextoDESCRIPTION().should('have.text', "DESCRIPTION")
-        cartPage.validarQtyItensCarrinho().should('have.text', "1")
-        cartPage.validarPrecoProduto().should('be.visible')
-        cartPage.validarDescricaoProduto().should('be.visible')
-        cartPage.validarNomeProduto().should('be.visible')
-
-        cy.url().should('contain', '/cart')
-
-        //validações botões 
-        cartPage.validarBtnRemoverProduto().should('have.text', "REMOVE")
-        cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
-        cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-
-        //finalizando a compra 
-        cartPage.clicarBtnComprar()
-
-        //validando que estou na página de checkout
-        checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
-        checkoutPage.validarNome().should('be.visible')
-        checkoutPage.validarSobrenome().should('be.visible')
-        checkoutPage.validarCEP().should('be.visible')
-
-        //preenchendo dados do comprador
+        //clicar no botão sem preencher nenhum campo obrigatário 
         checkoutPage.clicarContinua()
 
         //validar mensagem de erro de todos os campos vazio
@@ -134,44 +103,6 @@ describe('Efetuando uma compra', () => {
     })
 
     it('Cadastro com nome vazio', () => {
-        loginPage.visit('/')
-        loginPage.loginUsuario()
-        loginPage.loginSenha()
-        loginPage.entrar()
-        //adicionando um produto ao carrinho
-        cartPage.clicarProdutoMochila()
-        //clicando no botão adicionar produto
-        cartPage.adicionarCarrinho()
-        //validando númeração no ícone do carrinho
-        cartPage.contadorCarrinho().should('be.visible')
-        //clicando no carrinho pelo selector
-        cartPage.clicarCarrinho()
-        //validações dentro da página de carrinho
-
-        //validações textos
-        cartPage.validarTextoPaginaCarrinho().should('have.text', "Your Cart")
-        cartPage.validarTextoQTY().should('have.text', "QTY")
-        cartPage.validarTextoDESCRIPTION().should('have.text', "DESCRIPTION")
-        cartPage.validarQtyItensCarrinho().should('have.text', "1")
-        cartPage.validarPrecoProduto().should('be.visible')
-        cartPage.validarDescricaoProduto().should('be.visible')
-        cartPage.validarNomeProduto().should('be.visible')
-
-        cy.url().should('contain', '/cart')
-
-        //validações botões 
-        cartPage.validarBtnRemoverProduto().should('have.text', "REMOVE")
-        cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
-        cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-
-        //finalizando a compra
-        cartPage.clicarBtnComprar()
-
-        //validando que estou na página de checkout
-        checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
-        checkoutPage.validarNome().should('be.visible')
-        checkoutPage.validarSobrenome().should('be.visible')
-        checkoutPage.validarCEP().should('be.visible')
 
         //preenchendo dados do comprador
         checkoutPage.sobrenomeUsuario()
@@ -186,38 +117,6 @@ describe('Efetuando uma compra', () => {
     })
 
     it('Cadastro com sobrenome vazio', () => {
-        loginPage.visit('/')
-        loginPage.loginUsuario()
-        loginPage.loginSenha()
-        loginPage.entrar()
-        //adicionando um produto ao carrinho
-        cartPage.clicarProdutoMochila()
-        //clicando no botão adicionar produto
-        cartPage.adicionarCarrinho()
-        //validando númeração no ícone do carrinho
-        cartPage.contadorCarrinho().should('be.visible')
-        //clicando no carrinho pelo selector
-        cartPage.clicarCarrinho()
-        //validações dentro da página de carrinho
-
-        //validações textos
-        cartPage.validarTextoPaginaCarrinho().should('have.text', "Your Cart")
-        cartPage.validarTextoQTY().should('have.text', "QTY")
-        cartPage.validarTextoDESCRIPTION().should('have.text', "DESCRIPTION")
-        cartPage.validarQtyItensCarrinho().should('have.text', "1")
-        cartPage.validarPrecoProduto().should('be.visible')
-        cartPage.validarDescricaoProduto().should('be.visible')
-        cartPage.validarNomeProduto().should('be.visible')
-
-        cy.url().should('contain', '/cart')
-
-        //validações botões 
-        cartPage.validarBtnRemoverProduto().should('have.text', "REMOVE")
-        cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
-        cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-
-        //finalizando a compra
-        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
@@ -238,38 +137,6 @@ describe('Efetuando uma compra', () => {
     })
 
     it('Cadastro com cep vazio', () => {
-        loginPage.visit('/')
-        loginPage.loginUsuario()
-        loginPage.loginSenha()
-        loginPage.entrar()
-        //adicionando um produto ao carrinho
-        cartPage.clicarProdutoMochila()
-        //clicando no botão adicionar produto
-        cartPage.adicionarCarrinho()
-        //validando númeração no ícone do carrinho
-        cartPage.contadorCarrinho().should('be.visible')
-        //clicando no carrinho pelo selector
-        cartPage.clicarCarrinho()
-        //validações dentro da página de carrinho
-
-        //validações textos
-        cartPage.validarTextoPaginaCarrinho().should('have.text', "Your Cart")
-        cartPage.validarTextoQTY().should('have.text', "QTY")
-        cartPage.validarTextoDESCRIPTION().should('have.text', "DESCRIPTION")
-        cartPage.validarQtyItensCarrinho().should('have.text', "1")
-        cartPage.validarPrecoProduto().should('be.visible')
-        cartPage.validarDescricaoProduto().should('be.visible')
-        cartPage.validarNomeProduto().should('be.visible')
-
-        cy.url().should('contain', '/cart')
-
-        //validações botões 
-        cartPage.validarBtnRemoverProduto().should('have.text', "REMOVE")
-        cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
-        cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-
-        //finalizando a compra
-        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")

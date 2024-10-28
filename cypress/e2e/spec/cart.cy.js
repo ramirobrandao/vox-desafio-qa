@@ -7,12 +7,16 @@ import LoginPage from '../pages/login.cy.js';
 describe('Operações com carrinho', () => {
     const loginPage = new LoginPage();
     const cartPage = new CartPage();
-    //efetuando login
-    it('Adicionando um produto ao carrinho', () => {
-        loginPage.visit('/')
+
+    //efetuando login no site antes de cada cenário
+    beforeEach(() => {
+        loginPage.visit()
         loginPage.loginUsuario()
         loginPage.loginSenha()
         loginPage.entrar()
+    });
+
+    it('Adicionando um produto ao carrinho', () => {
         //adicionando um produto ao carrinho
         cartPage.clicarProdutoMochila()
         //clicando no botão adicionar produto
@@ -21,9 +25,9 @@ describe('Operações com carrinho', () => {
         cartPage.contadorCarrinho().should('be.visible')
         //clicando no carrinho pelo selector
         cartPage.clicarCarrinho()
-        
+
         //validações dentro da página de carrinho
-        
+
         //validações textos
         cartPage.validarTextoPaginaCarrinho().should('have.text', "Your Cart")
         cartPage.validarTextoQTY().should('have.text', "QTY")
@@ -37,15 +41,11 @@ describe('Operações com carrinho', () => {
         cartPage.validarBtnRemoverProduto().should('have.text', "REMOVE")
         cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-    
+
         cy.url().should('contain', '/cart')
     })
 
     it('Removendo um produto do carrinho', () => {
-        loginPage.visit('/')
-        loginPage.loginUsuario()
-        loginPage.loginSenha()
-        loginPage.entrar()
         //adicionando um produto ao carrinho
         cartPage.clicarProdutoMochila()
         //clicando no botão adicionar produto
@@ -54,7 +54,7 @@ describe('Operações com carrinho', () => {
         cartPage.contadorCarrinho().should('be.visible')
         //clicando no carrinho pelo selector
         cartPage.clicarCarrinho()
-        
+
         //validações dentro da página de carrinho
 
         //removendo produto do carrinho
@@ -71,10 +71,6 @@ describe('Operações com carrinho', () => {
     })
 
     it('Adicionando mais de um produto ao carrinho', () => {
-        loginPage.visit('/')
-        loginPage.loginUsuario()
-        loginPage.loginSenha()
-        loginPage.entrar()
         //adicionando um produto ao carrinho
         cartPage.clicarProdutoMochila()
         //clicando no botão adicionar produto
@@ -86,7 +82,7 @@ describe('Operações com carrinho', () => {
         cartPage.clicarMenu()
         cartPage.clicarBtnAllItems()
         //adicionando mais um produto ao carrinho totalizando dois produtos
-       
+
         cartPage.clicarProdutoCamiseta()
         cartPage.adicionarCarrinho()
         //validando númeração no ícone do carrinho
@@ -95,13 +91,13 @@ describe('Operações com carrinho', () => {
         cartPage.clicarCarrinho()
 
         //validações dentro da página de carrinho
-        
+
         //validações botões 
-       cartPage.validarBtnRemoverProduto().should('be.visible')
-       cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
-       cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-       
-       
+        cartPage.validarBtnRemoverProduto().should('be.visible')
+        cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
+        cartPage.validarBtnHome().should('have.text', "Continue Shopping")
+
+
         //validações textos
         cartPage.validarTextoPaginaCarrinho().should('have.text', "Your Cart")
         cartPage.validarTextoQTY().should('have.text', "QTY")
@@ -110,7 +106,7 @@ describe('Operações com carrinho', () => {
         cartPage.validarPrecoProduto().should('be.visible')
         cartPage.validarDescricaoProduto().should('be.visible')
         cartPage.validarNomeProduto().should('be.visible')
-        
+
         cy.url().should('contain', '/cart')
     })
 

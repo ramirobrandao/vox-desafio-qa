@@ -6,6 +6,8 @@ Foi configurada uma pipeline (GitHub Actions) de integração contínua CI/CD qu
 
 Também foi implementado a geração de relatórios ricos com gráficos e imagens utilizando a biblioteca do Mochawesome. 🚀
 
+O projeto foi organizado usando estruturas Describe com cenários de sucesso e erro validando os principais fluxos do SauceDemo: Autenticação de usuário, Visualização lista de produtos, Adicionar ao carrinho, Remover do carrinho, Efetuar uma compra.
+
 ## Documentação dos testes 
 
 - Acessar o link: [Documentação SauceDemo](https://github.com/ramirobrandao/vox-desafio-qa/blob/main/cypress/documents/Documenta%C3%A7%C3%A3o%20SwagLabs.pdf)  

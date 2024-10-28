@@ -7,9 +7,13 @@ import ListPage from '../pages/visualizacao-produtos.cy.js';
 describe('Lista de produtos', () => {
     const listPage = new ListPage();
     const loginPage = new LoginPage();
-    
+
+    //acessar o site antes de executar cada cenário
+    beforeEach(() => {
+        loginPage.visit()
+    });
+
     it('Validar lista de produtos', () => {
-        loginPage.visit('/')
         loginPage.loginUsuario()
         loginPage.loginSenha()
         loginPage.entrar()

@@ -5,9 +5,14 @@ import LoginPage from '../pages/login.cy.js';
 //funcionalidade
 describe('Login', () => {
     const loginPage = new LoginPage();
+
+    //acessar o site antes de executar cada cenário
+    beforeEach(() => {
+        loginPage.visit()
+    });
+
     //cenário de sucesso
     it('Login com sucesso', () => {
-        loginPage.visit('/')
         loginPage.loginUsuario()
         loginPage.loginSenha()
         loginPage.entrar()
@@ -19,7 +24,6 @@ describe('Login', () => {
 
     //cenários sem sucesso
     it('Login com usuário inválido', () => {
-        loginPage.visit('/')
         loginPage.loginUsuarioInvalido()
         loginPage.loginSenha()
         loginPage.entrar()
@@ -29,7 +33,6 @@ describe('Login', () => {
     })
 
     it('Login com senha inválida', () => {
-        loginPage.visit('/')
         loginPage.loginUsuario()
         loginPage.loginSenhaInvalida()
         loginPage.entrar()
@@ -39,7 +42,6 @@ describe('Login', () => {
     })
 
     it('Login com usuário e senha vazio', () => {
-        loginPage.visit('/')
         loginPage.entrar()
         //validações usuário e senha vazio
         loginPage.validarMessagensErro().should('have.text', "Epic sadface: Username is required")
@@ -47,7 +49,6 @@ describe('Login', () => {
     })
 
     it('Login com usuário vazio', () => {
-        loginPage.visit('/')
         loginPage.loginSenha()
         loginPage.entrar()
         //validações usuário vazio
@@ -56,7 +57,6 @@ describe('Login', () => {
     })
 
     it('Login com senha vazia', () => {
-        loginPage.visit('/')
         loginPage.loginUsuario()
         loginPage.entrar()
         //validações senha vazia
@@ -65,7 +65,6 @@ describe('Login', () => {
     })
 
     it('Login com usuário bloqueado', () => {
-        loginPage.visit('/')
         loginPage.loginUsuarioBloqueado()
         loginPage.loginSenha()
         loginPage.entrar()
@@ -75,7 +74,6 @@ describe('Login', () => {
     })
 
     it('Login usuário com problema', () => {
-        loginPage.visit('/')
         loginPage.loginUsuarioProblema()
         loginPage.loginSenha()
         loginPage.entrar()
@@ -87,7 +85,6 @@ describe('Login', () => {
     it('Login usuário com falha de desempenho', () => {
         const startTime = Date.now(); //captura o tempo atual
 
-        loginPage.visit('/');
         loginPage.loginUsuarioPerformance();
         loginPage.loginSenha();
         loginPage.entrar();
