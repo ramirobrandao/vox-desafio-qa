@@ -26,6 +26,10 @@ class CartPage {
         return cy.get('#inventory_item_container > div > button').click();
     }
 
+    clicarBtnComprar() {
+        return cy.get('.btn_action').click();
+    }
+
     clicarMenu() {
         return cy.get('#menu_button_container > div > div:nth-child(3) > div > button').click()
     }
@@ -38,11 +42,11 @@ class CartPage {
     removerItemCarrinho() {
         return cy.get('.item_pricebar > .btn_secondary').click()
     }
-    
+
     contadorCarrinho() {
         return cy.get('.fa-layers-counter')
     }
-   
+
     validarTextoPaginaCarrinho() {
         return cy.get('.subheader')
     }

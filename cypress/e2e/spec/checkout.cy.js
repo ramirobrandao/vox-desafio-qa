@@ -11,7 +11,7 @@ describe('Efetuando uma compra', () => {
     const checkoutPage = new CheckoutPage();
 
     //cenário de sucesso
-    it('Validando o fluxo de compra', () => {
+    it.only('Validando o fluxo de compra', () => {
         loginPage.visit('/')
         loginPage.loginUsuario()
         loginPage.loginSenha()
@@ -43,7 +43,7 @@ describe('Efetuando uma compra', () => {
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
 
         //finalizando a compra
-        checkoutPage.clicarBtnComprar()
+        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
@@ -57,9 +57,10 @@ describe('Efetuando uma compra', () => {
         checkoutPage.nomeUsuario()
         checkoutPage.sobrenomeUsuario()
         checkoutPage.cepUsuario()
+
         checkoutPage.clicarContinua()
 
-        //validando que estou na página de resumo da compra 
+        //validando que estou na página de resumo da compra
         checkoutPage.validarTextoPaginaResumo().should('have.text', "Checkout: Overview")
         cartPage.validarTextoQTY().should('have.text', "QTY")
         cartPage.validarTextoDESCRIPTION().should('have.text', "DESCRIPTION")
@@ -113,8 +114,8 @@ describe('Efetuando uma compra', () => {
         cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
 
-        //finalizando a compra
-        checkoutPage.clicarBtnComprar()
+        //finalizando a compra 
+        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
@@ -164,7 +165,7 @@ describe('Efetuando uma compra', () => {
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
 
         //finalizando a compra
-        checkoutPage.clicarBtnComprar()
+        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
@@ -216,7 +217,7 @@ describe('Efetuando uma compra', () => {
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
 
         //finalizando a compra
-        checkoutPage.clicarBtnComprar()
+        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
@@ -268,7 +269,7 @@ describe('Efetuando uma compra', () => {
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
 
         //finalizando a compra
-        checkoutPage.clicarBtnComprar()
+        cartPage.clicarBtnComprar()
 
         //validando que estou na página de checkout
         checkoutPage.validarTextoPaginaDados().should('have.text', "Checkout: Your Information")
@@ -281,7 +282,7 @@ describe('Efetuando uma compra', () => {
         checkoutPage.sobrenomeUsuario()
         checkoutPage.clicarContinua()
 
-        //validar mensagem de erro de todos os campos vazio
+        //validar mensagem de erro com cep vazio
         checkoutPage.validarMsgCamposVazioCadastro().should('have.text', 'Error: Postal Code is required')
 
         cy.url().should('contain', '/checkout-step-one')

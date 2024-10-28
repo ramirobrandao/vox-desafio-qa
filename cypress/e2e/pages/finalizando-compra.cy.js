@@ -3,11 +3,11 @@
 class CheckoutPage {
 
     clicarBtnComprar() {
-        return cy.get('#cart_contents_container > div > div.cart_footer > a.btn_action.checkout_button').click
+        return cy.get('.btn_action checkout_button').click
     }
 
     clicarContinua() {
-        return cy.get('.btn_primary cart_button').click
+        return cy.get('.btn_primary').click
     }
 
     clicarFinalizarCompra() {
