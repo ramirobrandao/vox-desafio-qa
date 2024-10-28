@@ -4,7 +4,7 @@
 
 ## Documentação dos testes 
 
-- Acessar o link:  
+- Acessar o link: [Documentação SauceDemo](https://github.com/ramirobrandao/vox-desafio-qa/blob/main/cypress/documents/Documenta%C3%A7%C3%A3o%20SwagLabs.pdf)  
 
 ## Pré-requisitos
 
