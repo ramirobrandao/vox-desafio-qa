@@ -1,6 +1,14 @@
 ## Desafio técnico de automação com Cypress Frontend 💙
 
-## Estrutura dos testes 
+Automação de testes para o site Sauce Demo utilizando Cypress e JavaScript, seguindo boas práticas de Page Object Model (POM).
+Foi configurada uma pipeline (GitHub Actions) de integração contínua CI/CD que executa automaticamente todos os testes do projeto quando é realizado um push na branch main ou quando um pull request é aberto.
+Também foi implementado a geração de relatórios ricos com gráficos e imagens no Mochawesome 🚀
+
+
+## Estrutura do projeto 
+
+- Acessar o link: [Documentação SauceDemo](https://github.com/ramirobrandao/vox-desafio-qa/blob/main/cypress/documents/Documenta%C3%A7%C3%A3o%20SwagLabs.pdf)  
+
 
 ## Documentação dos testes 
 
