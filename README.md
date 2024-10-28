@@ -1,5 +1,3 @@
-# vox-desafio-qa
-
 ## Desafio técnico de automação com Cypress Frontend 💙
 
 ## Pré-requisitos
@@ -35,4 +33,11 @@ Para verificar a instalação do gerenciador de pacoted NPM (deve retornar a ver
 - No terminal do VSCode deve ser executado o seguinte comando para que o Cypress seja executado:
 
 `` npx cypress open``
+
+- No terminal do VSCode se optar por executar em modo headless digite o seguinte comando: 
+
+`` npx cypress run``
+
+
+
 

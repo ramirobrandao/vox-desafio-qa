@@ -3,7 +3,7 @@
 class CheckoutPage {
 
     clicarBtnComprar() {
-        return cy.get('.btn_action').click
+        return cy.get('#cart_contents_container > div > div.cart_footer > a.btn_action.checkout_button').click
     }
 
     clicarContinua() {
@@ -13,7 +13,7 @@ class CheckoutPage {
     clicarFinalizarCompra() {
         return cy.get('.btn_action cart_button').click
     }
-   
+
     validarTextoPaginaDados() {
         return cy.get('.subheader')
     }
@@ -62,8 +62,8 @@ class CheckoutPage {
         cy.get('#last-name').type('Brandão')
     }
 
-    cepUsuario(cep) {
-        cy.get('#postal-code').type('55870-000')
+    cepUsuario(usuarioCep) {
+        cy.get('#postal-code').type('55870000')
     }
 
 }

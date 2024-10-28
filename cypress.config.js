@@ -9,7 +9,7 @@ module.exports = defineConfig({
     //acesso ao site/ambiente
     baseUrl: 'https://www.saucedemo.com/v1',
     reporter: 'mochawesome',
-    screenshotOnRunFailure: true,  // Gera print quando um teste falhar
+    screenshotOnRunFailure: true,  //gera print quando um teste falhar
     "reporterOptions": {
       "reportDir": "cypress/reports/mochawesome-report",
       "overwrite": false,
@@ -19,9 +19,9 @@ module.exports = defineConfig({
       "reportFilename": "report",
       "timestamp": "mmddyyyy_HHMMss",
       "inlineAssets": true,
-      "autoOpen": true,
+      //"autoOpen": true,
       "reportPageTitle": "Relatório de execução de testes no site SAUCEDEMO",
-      "embeddedScreenshots": true  // Integrar screenshots no relatório
+      "embeddedScreenshots": true  //integrar prints no relatório
     }
 
   },

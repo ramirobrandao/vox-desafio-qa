@@ -42,7 +42,7 @@ describe('Login', () => {
         loginPage.visit('/')
         loginPage.entrar()
         //validações usuário e senha vazio
-        loginPage.validarMessagensErro().should('have.text', "Epic sadface: Username isyyyyyyy required")
+        loginPage.validarMessagensErro().should('have.text', "Epic sadface: Username is required")
         loginPage.validarURL().should('contain', '/v1')
     })
 
