@@ -1,5 +1,11 @@
 ## Desafio técnico de automação com Cypress Frontend 💙
 
+## Estrutura dos testes 
+
+## Documentação dos testes 
+
+- Acessar o link:  
+
 ## Pré-requisitos
 
 - NodeJS;
