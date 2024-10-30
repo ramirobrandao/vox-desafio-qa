@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
-import LoginPage from '../pages/login.cy.js';
-import ListPage from '../pages/visualizacao-produtos.cy.js';
+import LoginPage from '../pages/login.js';
+import ListPage from '../pages/visualizacao-produtos.js';
 
 //funcionalidade
 describe('Lista de produtos', () => {

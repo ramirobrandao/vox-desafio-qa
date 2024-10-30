@@ -3,15 +3,15 @@
 class CheckoutPage {
 
     clicarBtnComprar() {
-        return cy.get('.btn_action checkout_button').click
+        return cy.get('.btn_action checkout_button').click()
     }
 
     clicarContinua() {
-        return cy.get('.btn_primary').click
+        return cy.get('.btn_primary').click()
     }
 
     clicarFinalizarCompra() {
-        return cy.get('.btn_action cart_button').click
+        return cy.get('.btn_action').click()
     }
 
     validarTextoPaginaDados() {
@@ -47,11 +47,15 @@ class CheckoutPage {
     }
 
     validarMsgCamposVazioCadastro() {
-        return cy.get('.error-button')
+        return cy.get('[data-test="error"]')
     }
 
     validarBtnFinalizar() {
-        return cy.get('.btn_action cart_button')
+        return cy.get('.btn_action')
+    }
+
+    validarQtyItensCarrinho() {
+        return cy.get('.summary_quantity')
     }
 
     nomeUsuario(usuarioNome) {

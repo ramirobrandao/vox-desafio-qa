@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 
-import CartPage from '../pages/carrinho.cy.js';
-import LoginPage from '../pages/login.cy.js';
+import CartPage from '../pages/carrinho.js';
+import LoginPage from '../pages/login.js';
 
 //funcionalidade
 describe('Operações com carrinho', () => {

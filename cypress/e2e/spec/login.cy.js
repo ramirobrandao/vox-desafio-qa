@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-import LoginPage from '../pages/login.cy.js';
+import LoginPage from '../pages/login.js';
 
 //funcionalidade
 describe('Login', () => {

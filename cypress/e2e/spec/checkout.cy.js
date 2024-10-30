@@ -1,8 +1,8 @@
 /// <reference types="cypress"/>
 
-import LoginPage from '../pages/login.cy.js';
-import CartPage from '../pages/carrinho.cy.js';
-import CheckoutPage from '../pages/finalizando-compra.cy.js';
+import LoginPage from '../pages/login.js';
+import CartPage from '../pages/carrinho.js';
+import CheckoutPage from '../pages/finalizando-compra.js';
 
 //funcionalidade
 describe('Efetuando uma compra', () => {
@@ -70,7 +70,7 @@ describe('Efetuando uma compra', () => {
         checkoutPage.validarTextoPaginaResumo().should('have.text', "Checkout: Overview")
         cartPage.validarTextoQTY().should('have.text', "QTY")
         cartPage.validarTextoDESCRIPTION().should('have.text', "DESCRIPTION")
-        cartPage.validarQtyItensCarrinho().should('have.text', "1")
+        checkoutPage.validarQtyItensCarrinho().should('have.text', "1")
         cartPage.validarPrecoProduto().should('be.visible')
         cartPage.validarDescricaoProduto().should('be.visible')
         cartPage.validarNomeProduto().should('be.visible')
@@ -81,12 +81,12 @@ describe('Efetuando uma compra', () => {
 
         checkoutPage.clicarFinalizarCompra()
 
+
         //validando confirmação de compra 
         checkoutPage.validarConfirmacaoCompra().should('be.visible')
-        checkoutPage.validarTextoCompra().should('THANK YOU FOR YOUR ORDER')
+        checkoutPage.validarTextoCompra().should('have.text', "THANK YOU FOR YOUR ORDER")
 
         cy.url().should('contain', '/checkout-complete')
-
     })
 
     //cenários sem sucesso
