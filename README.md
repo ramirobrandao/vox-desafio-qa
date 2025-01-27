@@ -50,6 +50,15 @@ Para verificar a instalação do gerenciador de pacoted NPM (deve retornar a ver
 
 `` npx cypress run``
 
+![image](https://github.com/user-attachments/assets/acabc535-4b23-4653-b0cc-8b0721418b95)
+
+## Relatórios 
+
+- Depois da execução dos testes os relatórios das features podem ser acessados no seguinte diretório:
+
+`` /cypress/reports/mochawesome-report/``
+
+
 
 
 
