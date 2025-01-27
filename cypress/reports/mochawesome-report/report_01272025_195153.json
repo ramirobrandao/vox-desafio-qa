@@ -1,0 +1,187 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-27T22:51:43.248Z",
+    "end": "2025-01-27T22:51:53.928Z",
+    "duration": 10680,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "877fdb31-5950-4626-a2e2-36cb02c35094",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec\\checkout.cy.js",
+      "file": "cypress\\e2e\\spec\\checkout.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5f6c3d46-9306-4c9b-9519-fa897714c005",
+          "title": "Efetuando uma compra",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validando o fluxo de compra",
+              "fullTitle": "Efetuando uma compra Validando o fluxo de compra",
+              "timedOut": null,
+              "duration": 3483,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//preenchendo dados do comprador\ncheckoutPage.nomeUsuario();\ncheckoutPage.sobrenomeUsuario();\ncheckoutPage.cepUsuario();\ncheckoutPage.clicarContinua();\n//validando que estou na página de resumo da compra\ncheckoutPage.validarTextoPaginaResumo().should('have.text', \"Checkout: Overview\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncheckoutPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncheckoutPage.validarInformacaoPagamento().should('be.visible');\ncheckoutPage.validarBtnFinalizar().should('be.visible');\ncy.url().should('contain', '/checkout-step-two');\ncheckoutPage.clicarFinalizarCompra();\n//validando confirmação de compra \ncheckoutPage.validarConfirmacaoCompra().should('be.visible');\ncheckoutPage.validarTextoCompra().should('have.text', \"THANK YOU FOR YOUR ORDER\");\ncy.url().should('contain', '/checkout-complete');",
+              "err": {},
+              "uuid": "e4462c90-3faf-4188-8727-bf72895d0c51",
+              "parentUUID": "5f6c3d46-9306-4c9b-9519-fa897714c005",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com campos vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com campos vazio",
+              "timedOut": null,
+              "duration": 1377,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//clicar no botão sem preencher nenhum campo obrigatário \ncheckoutPage.clicarContinua();\n//validar mensagem de erro de todos os campos vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', \"Error: First Name is required\");\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {},
+              "uuid": "ee7fe17b-241e-4461-b178-d3f91873159f",
+              "parentUUID": "5f6c3d46-9306-4c9b-9519-fa897714c005",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com nome vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com nome vazio",
+              "timedOut": null,
+              "duration": 1892,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//preenchendo dados do comprador\ncheckoutPage.sobrenomeUsuario();\ncheckoutPage.cepUsuario();\ncheckoutPage.clicarContinua();\n//validar mensagem de erro de todos os campos vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', \"Error: First Name is required\");\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {},
+              "uuid": "aed225ae-0a8e-4eb1-8033-65729ad87bec",
+              "parentUUID": "5f6c3d46-9306-4c9b-9519-fa897714c005",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com sobrenome vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com sobrenome vazio",
+              "timedOut": null,
+              "duration": 1882,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\n//preenchendo dados do comprador\ncheckoutPage.nomeUsuario();\ncheckoutPage.cepUsuario();\ncheckoutPage.clicarContinua();\n//validar mensagem de erro de todos os campos vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', \"Error: Last Name is required\");\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {},
+              "uuid": "482bce63-129b-439d-a18d-527e1b0b29fc",
+              "parentUUID": "5f6c3d46-9306-4c9b-9519-fa897714c005",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Cadastro com cep vazio",
+              "fullTitle": "Efetuando uma compra Cadastro com cep vazio",
+              "timedOut": null,
+              "duration": 1860,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//validando que estou na página de checkout\ncheckoutPage.validarTextoPaginaDados().should('have.text', \"Checkout: Your Information\");\ncheckoutPage.validarNome().should('be.visible');\ncheckoutPage.validarSobrenome().should('be.visible');\ncheckoutPage.validarCEP().should('be.visible');\n//preenchendo dados do comprador\ncheckoutPage.nomeUsuario();\ncheckoutPage.sobrenomeUsuario();\ncheckoutPage.clicarContinua();\n//validar mensagem de erro com cep vazio\ncheckoutPage.validarMsgCamposVazioCadastro().should('have.text', 'Error: Postal Code is required');\ncy.url().should('contain', '/checkout-step-one');",
+              "err": {},
+              "uuid": "d40c239f-dfd3-4fc4-9e50-3418d67db85a",
+              "parentUUID": "5f6c3d46-9306-4c9b-9519-fa897714c005",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e4462c90-3faf-4188-8727-bf72895d0c51",
+            "ee7fe17b-241e-4461-b178-d3f91873159f",
+            "aed225ae-0a8e-4eb1-8033-65729ad87bec",
+            "482bce63-129b-439d-a18d-527e1b0b29fc",
+            "d40c239f-dfd3-4fc4-9e50-3418d67db85a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10494,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportFilename": "report",
+        "timestamp": "mmddyyyy_HHMMss",
+        "inlineAssets": true,
+        "reportPageTitle": "Relatório de execução de testes no site SAUCEDEMO",
+        "embeddedScreenshots": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-27T22:51:55.781Z",
+    "end": "2025-01-27T22:51:57.176Z",
+    "duration": 1395,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ab56eb1b-9fb6-4077-9195-c0453cea68ac",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec\\list.cy.js",
+      "file": "cypress\\e2e\\spec\\list.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "df991bcf-7680-4edf-a4e2-4bf3729bd198",
+          "title": "Lista de produtos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validar lista de produtos",
+              "fullTitle": "Lista de produtos Validar lista de produtos",
+              "timedOut": null,
+              "duration": 1322,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginPage.loginUsuario();\nloginPage.loginSenha();\nloginPage.entrar();\n//validações da lista de produtos\nloginPage.validarLogin().should('have.text', \"Products\");\nlistPage.validarListaProdutos().should('be.visible');\nlistPage.validarListaImagens().should('be.visible');\nloginPage.validarURL().should('contain', '/inventory');",
+              "err": {},
+              "uuid": "07fbb545-ffc9-4e5e-81c3-6ce3bc6af13b",
+              "parentUUID": "df991bcf-7680-4edf-a4e2-4bf3729bd198",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "07fbb545-ffc9-4e5e-81c3-6ce3bc6af13b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1322,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportFilename": "report",
+        "timestamp": "mmddyyyy_HHMMss",
+        "inlineAssets": true,
+        "reportPageTitle": "Relatório de execução de testes no site SAUCEDEMO",
+        "embeddedScreenshots": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

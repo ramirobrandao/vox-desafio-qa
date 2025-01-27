@@ -1,0 +1,149 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-27T22:51:34.546Z",
+    "end": "2025-01-27T22:51:41.390Z",
+    "duration": 6844,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3761eb0-822d-4578-8976-f0654f299bda",
+      "title": "",
+      "fullFile": "cypress\\e2e\\spec\\cart.cy.js",
+      "file": "cypress\\e2e\\spec\\cart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8e6123b1-13df-4e04-b767-19b9eb338e7c",
+          "title": "Operações com carrinho",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Adicionando um produto ao carrinho",
+              "fullTitle": "Operações com carrinho Adicionando um produto ao carrinho",
+              "timedOut": null,
+              "duration": 3567,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('have.text', \"1\");\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\n//validações botões \ncartPage.validarBtnRemoverProduto().should('have.text', \"REMOVE\");\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\ncy.url().should('contain', '/cart');",
+              "err": {},
+              "uuid": "2a4614d2-3f5b-4568-8c4c-ec55320595e8",
+              "parentUUID": "8e6123b1-13df-4e04-b767-19b9eb338e7c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Removendo um produto do carrinho",
+              "fullTitle": "Operações com carrinho Removendo um produto do carrinho",
+              "timedOut": null,
+              "duration": 1315,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//removendo produto do carrinho\ncartPage.removerItemCarrinho();\n//validações que não tem nenhum item no carrinho\ncartPage.validarQtyItensCarrinho().should('not.exist');\ncartPage.validarBtnRemoverProduto().should('not.exist');\ncartPage.validarPrecoProduto().should('not.exist');\ncartPage.validarDescricaoProduto().should('not.exist');\ncartPage.validarNomeProduto().should('not.exist');\ncy.url().should('contain', '/cart');",
+              "err": {},
+              "uuid": "6e664574-4a76-4c75-82f6-25b67f6e2a08",
+              "parentUUID": "8e6123b1-13df-4e04-b767-19b9eb338e7c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Adicionando mais de um produto ao carrinho",
+              "fullTitle": "Operações com carrinho Adicionando mais de um produto ao carrinho",
+              "timedOut": null,
+              "duration": 1848,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//adicionando um produto ao carrinho\ncartPage.clicarProdutoMochila();\n//clicando no botão adicionar produto\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//voltando na página principal dos produtos\ncartPage.clicarMenu();\ncartPage.clicarBtnAllItems();\n//adicionando mais um produto ao carrinho totalizando dois produtos\ncartPage.clicarProdutoCamiseta();\ncartPage.adicionarCarrinho();\n//validando númeração no ícone do carrinho\ncartPage.contadorCarrinho().should('be.visible');\n//clicando no carrinho pelo selector\ncartPage.clicarCarrinho();\n//validações dentro da página de carrinho\n//validações botões \ncartPage.validarBtnRemoverProduto().should('be.visible');\ncartPage.validarBtnComprar().should('have.text', \"CHECKOUT\");\ncartPage.validarBtnHome().should('have.text', \"Continue Shopping\");\n//validações textos\ncartPage.validarTextoPaginaCarrinho().should('have.text', \"Your Cart\");\ncartPage.validarTextoQTY().should('have.text', \"QTY\");\ncartPage.validarTextoDESCRIPTION().should('have.text', \"DESCRIPTION\");\ncartPage.validarQtyItensCarrinho().should('be.visible');\ncartPage.validarPrecoProduto().should('be.visible');\ncartPage.validarDescricaoProduto().should('be.visible');\ncartPage.validarNomeProduto().should('be.visible');\ncy.url().should('contain', '/cart');",
+              "err": {},
+              "uuid": "f476bd39-8e80-4e93-aade-685feaa38479",
+              "parentUUID": "8e6123b1-13df-4e04-b767-19b9eb338e7c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2a4614d2-3f5b-4568-8c4c-ec55320595e8",
+            "6e664574-4a76-4c75-82f6-25b67f6e2a08",
+            "f476bd39-8e80-4e93-aade-685feaa38479"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6730,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "charts": true,
+        "reportFilename": "report",
+        "timestamp": "mmddyyyy_HHMMss",
+        "inlineAssets": true,
+        "reportPageTitle": "Relatório de execução de testes no site SAUCEDEMO",
+        "embeddedScreenshots": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
