@@ -16,6 +16,11 @@ describe('Operações com carrinho', () => {
         loginPage.entrar()
     });
 
+    //validando se no final de cada cenário a url tem cart
+    afterEach(() => {
+        cy.url().should('contain', '/cart')
+    });
+
     it('Adicionando um produto ao carrinho', () => {
         //adicionando um produto ao carrinho
         cartPage.clicarProdutoMochila()
@@ -41,8 +46,6 @@ describe('Operações com carrinho', () => {
         cartPage.validarBtnRemoverProduto().should('have.text', "REMOVE")
         cartPage.validarBtnComprar().should('have.text', "CHECKOUT")
         cartPage.validarBtnHome().should('have.text', "Continue Shopping")
-
-        cy.url().should('contain', '/cart')
     })
 
     it('Removendo um produto do carrinho', () => {
@@ -66,8 +69,6 @@ describe('Operações com carrinho', () => {
         cartPage.validarPrecoProduto().should('not.exist')
         cartPage.validarDescricaoProduto().should('not.exist')
         cartPage.validarNomeProduto().should('not.exist')
-
-        cy.url().should('contain', '/cart')
     })
 
     it('Adicionando mais de um produto ao carrinho', () => {
@@ -106,8 +107,6 @@ describe('Operações com carrinho', () => {
         cartPage.validarPrecoProduto().should('be.visible')
         cartPage.validarDescricaoProduto().should('be.visible')
         cartPage.validarNomeProduto().should('be.visible')
-
-        cy.url().should('contain', '/cart')
     })
 
 })
